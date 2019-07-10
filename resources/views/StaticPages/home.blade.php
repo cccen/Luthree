@@ -10,7 +10,7 @@
            才第三遍
        </p>
        <p>
-           <a class="btn btn-success btn-lg" href="#" role="button">现在注册</a>
+           <a class="btn btn-success btn-lg" href="{{route('signup')}}" role="button">现在注册</a>
        </p>
    </div>
 @stop
