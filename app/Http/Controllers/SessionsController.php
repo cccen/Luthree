@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -12,8 +12,6 @@ class SessionsController extends Controller
         $this->middleware('guest',[
             'only'=>['create']
         ]);
-
-
     }
 
     public function create()

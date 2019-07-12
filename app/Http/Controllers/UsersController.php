@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth',[
-            'except'=>['show','create','store']
+            'except'=>['show','create','store','index']
         ]);
 
         $this->middleware('guest',[
@@ -65,5 +66,11 @@ class UsersController extends Controller
         $user->update($data);
         session()->flash('success','更新用户信息完成');
         return redirect()->route('users.show',$user->id);
+    }
+
+    public function index()
+    {
+        $users = User::paginate(13);
+        return view('users.index', compact('users'));
     }
 }
